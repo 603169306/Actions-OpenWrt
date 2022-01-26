@@ -19,9 +19,9 @@
 echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
 mkdir -p package/helloworld
 for i in "dns2socks" "microsocks" "ipt2socks" "pdnsd-alt" "redsocks2"; do \
-  proxychains4 svn checkout "https://github.com/immortalwrt/packages/trunk/net/$i" "package/helloworld/$i"; \
+  svn checkout "https://github.com/immortalwrt/packages/trunk/net/$i" "package/helloworld/$i"; \
 done
-proxychains4 svn checkout https://github.com/coolsnowwolf/lede/trunk/tools/ucl tools/ucl
-proxychains4 svn checkout https://github.com/coolsnowwolf/lede/trunk/tools/upx tools/upx
+svn checkout https://github.com/coolsnowwolf/lede/trunk/tools/ucl tools/ucl
+svn checkout https://github.com/coolsnowwolf/lede/trunk/tools/upx tools/upx
 sed -i 'N;24a\tools-y += ucl upx' tools/Makefile
 sed -i 'N;40a\$(curdir)/upx/compile := $(curdir)/ucl/compile' tools/Makefile
